@@ -1,14 +1,15 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-// import AuthLayout from '../layouts/AuthLayout';
 import DashboardLayout from '../layouts/DashboardLayout';
 import Login from '../pages/Login';
-// import Home from '../pages/Dashboard/Home';
 import UserManagement from '../pages/Dashboard/UserManagement';
 import TransactionManagement from '../pages/Dashboard/TransactionManagement';
+import TentManagement from '../pages/Dashboard/TentManagement';
+import HomePage from '../pages/Website/HomePage';
+import Booking from '../pages/Website/Booking';
 
 const PrivateRoute = ({ children }) => {
   const isAuthenticated = localStorage.getItem('token');
-  return isAuthenticated ? children : <Navigate to="/login" />;
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
 };
 
 export default function Router() {
@@ -18,6 +19,14 @@ export default function Router() {
       element: <Login />,
     },
     {
+      path: '/home',
+      element: <HomePage />
+    },
+    {
+      path: '/booking',
+       element: <Booking />,
+    },
+    {
       path: '/',
       element: (
         <PrivateRoute>
@@ -25,10 +34,15 @@ export default function Router() {
         </PrivateRoute>
       ),
       children: [
-    
         { path: 'users', element: <UserManagement /> },
         { path: 'transactions', element: <TransactionManagement /> },
+        { index: true, element: <Navigate to="/users" replace /> },
+        { path: 'tent', element: <TentManagement /> },
       ],
+    },
+    {
+      path: '*',
+      element: <Navigate to="/login" replace />,
     },
   ]);
 }
