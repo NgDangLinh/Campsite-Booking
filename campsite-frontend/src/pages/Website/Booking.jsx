@@ -1,12 +1,17 @@
 import { useState } from "react";
 import RoomCard from "../../components/RoomCard";
+import Navbar from "../../components/Navbar";   // Navbar chung
 import "./Booking.css";
+
+// ✅ import ảnh từ assets
+import glampingImg from "../../assets/Glamping.jpg";
+import campingImg from "../../assets/Camping.jpg";
 
 const roomData = [
   {
     name: "Glamping",
     type: "Glamping",
-    image: "/assets/double.jpg",
+    image: glampingImg,   // dùng ảnh Glamping
     view: "Cảnh quan thành phố",
     area: 30,
     bed: "2 Giường đơn",
@@ -19,7 +24,7 @@ const roomData = [
   {
     name: "Camping thường",
     type: "Camping",
-    image: "/assets/single.jpg",
+    image: campingImg,   // dùng ảnh Camping
     view: "Vườn cây",
     area: 20,
     bed: "1 Giường đơn",
@@ -58,6 +63,9 @@ const Booking = () => {
 
   return (
     <div className="booking-page">
+      {/* ✅ Navbar giống HomePage */}
+      <Navbar />
+
       <div className="booking-form">
         <div className="form-group">
           <label>Check in</label>
@@ -110,3 +118,4 @@ const Booking = () => {
 };
 
 export default Booking;
+  

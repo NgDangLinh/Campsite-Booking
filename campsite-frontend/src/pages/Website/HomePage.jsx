@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom' 
+import Navbar from '../../components/Navbar';
 import './HomePage.css';
 import homePageCampingImg from '../../assets/HomePageCamping.jpg';
-import logoImg from '../../assets/Logo.jpg';
 import campingImg from '../../assets/Camping.jpg';
 import glampingImg from '../../assets/Glamping.jpg';
 import rvImg from '../../assets/RV.jpg';
@@ -14,26 +13,11 @@ import wifiIcon from '../../assets/Wifi.png';
 import acIcon from '../../assets/Ac.png';
 import serviceImage from '../../assets/Service.jpg';
 
-
-
-
 const HomePage = () => {
   return (
     <div className="home-page">
-      {/* Header */}
-      <header className="header">
-        <div className="container header-container">
-          <div className="logo">
-          <img src={logoImg} alt="Mojen Retreat Logo" /></div>
-          <nav className="nav">
-            <ul>
-              <li><Link to="/home">Home</Link></li>
-              <li><Link to="/booking">Booking</Link></li>
-              <li><Link to="/login">Admin</Link></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      {/* Navbar */}
+      <Navbar />
 
       {/* Banner */}
       <section className="banner">
@@ -44,23 +28,21 @@ const HomePage = () => {
       </section>
 
       {/* About */}
-      <section class="about-section">
-  <div class="about-container">
-    <div class="about-image">
-      <img src={homePageCampingImg}
-       alt="Mojen Retreat Landscape" />
-    </div>
-    <div class="about-content">
-      <h2>About us</h2>
-      <p class="intro">A place of privacy, peace, and happiness – no matter where you come from.</p>
-      <p>
-        We love nature, love people, and celebrate difference. Mojen Retreat is a peaceful escape nestled in Quân Chu,
-        Đại Từ, Thái Nguyên – where crystal-clear streams and lush forests meet. Come reconnect with your soul, share stories by the fire, and find serenity in every breath.
-      </p>
-   
-    </div>
-  </div>
-</section>
+      <section className="about-section">
+        <div className="about-container">
+          <div className="about-image">
+            <img src={homePageCampingImg} alt="Mojen Retreat Landscape" />
+          </div>
+          <div className="about-content">
+            <h2>About us</h2>
+            <p className="intro">A place of privacy, peace, and happiness – no matter where you come from.</p>
+            <p>
+              We love nature, love people, and celebrate difference. Mojen Retreat is a peaceful escape nestled in Quân Chu,
+              Đại Từ, Thái Nguyên – where crystal-clear streams and lush forests meet. Come reconnect with your soul, share stories by the fire, and find serenity in every breath.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Rooms */}
       <section className="rooms">
@@ -95,53 +77,49 @@ const HomePage = () => {
               <h3>RV</h3>
               <p>Looking for something different? Stay in one of our cozy, fully-equipped RVs – a fun and private way to enjoy your retreat, combining the charm of tiny living with the beauty of the outdoors.</p>
             </div>
-         </div>
+          </div>
         </div>
       </section>
 
-    { /*Service */}
-     <section className="services-section">
-      <div className="services-container">
-        <div className="services-left">
-          <h2>Service</h2>
-          <p>
-  
-          </p>
-              <div className="service-grid">
-        <div className="service-row">
-          <div className="service-item">
-            <img src={bbqIcon} alt="BBQ" />
-            <p>BBQ</p>
+      {/* Service */}
+      <section className="services-section">
+        <div className="services-container">
+          <div className="services-left">
+            <h2>Service</h2>
+            <div className="service-grid">
+              <div className="service-row">
+                <div className="service-item">
+                  <img src={bbqIcon} alt="BBQ" />
+                  <p>BBQ</p>
+                </div>
+                <div className="service-item">
+                  <img src={poolIcon} alt="Hồ bơi" />
+                  <p>Swimming pool</p>
+                </div>
+                <div className="service-item">
+                  <img src={cafeIcon} alt="Cà phê" />
+                  <p>Cafe</p>
+                </div>
+              </div>
+
+              <div className="service-row center">
+                <div className="service-item">
+                  <img src={wifiIcon} alt="Wifi" />
+                  <p>Wifi</p>
+                </div>
+                <div className="service-item">
+                  <img src={acIcon} alt="Điều hòa" />
+                  <p>Air conditioner</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="service-item">
-            <img src={poolIcon} alt="Hồ bơi" />
-            <p>Swimming pool</p>
-          </div>
-          <div className="service-item">
-            <img src={cafeIcon} alt="Cà phê" />
-            <p>Cafe</p>
+
+          <div className="services-right tall-image">
+            <img src={serviceImage} alt="Service Visual" />
           </div>
         </div>
-
-        <div className="service-row center">
-          <div className="service-item">
-            <img src={wifiIcon} alt="Wifi" />
-            <p>Wifi</p>
-          </div>
-          <div className="service-item">
-            <img src={acIcon} alt="Điều hòa" />
-            <p>Air conditioner</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-        <div className="services-right tall-image">
-          <img src={serviceImage} alt="Service Visual" />
-        </div>
-      </div>
-    </section>
-
+      </section>
 
       {/* Contact */}
       <section className="contact">
